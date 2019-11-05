@@ -20,8 +20,8 @@ public class JerseyConfiguration extends ResourceConfig {
         register(new org.glassfish.hk2.utilities.binding.AbstractBinder() {
             @Override
             protected void configure() {
-                bindFactory(UserContextFactory.class).proxy(true)
-                        .to(ApplicationUser.class).proxy(true)
+                bindFactory(UserContextFactory.class)
+                        .to(ApplicationUser.class)
                         .in(RequestScoped.class);
             }
         });

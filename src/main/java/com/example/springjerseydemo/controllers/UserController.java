@@ -1,9 +1,6 @@
 package com.example.springjerseydemo.controllers;
 
 import com.example.springjerseydemo.models.ApplicationUser;
-import com.example.springjerseydemo.services.UserService;
-import org.glassfish.jersey.internal.guava.Lists;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,21 +17,17 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 @Path("/users")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-
     @Context
     private HttpServletRequest request;
 
+    @Context
+    private ApplicationUser user;
 
     @GET
     @Produces(APPLICATION_JSON)
-    @Context
-    public List getClients(ApplicationUser user) throws InterruptedException {
-   //     System.out.println(request.getRequestURI());
-        Thread.sleep(20000000l);
+    public List getClients() {
+        System.out.println(user.getFirstName());
         return Arrays.asList(user);
     }
-
 
 }

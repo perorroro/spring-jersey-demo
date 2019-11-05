@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
     List<ApplicationUser> getUsers();
-
-    ApplicationUser loadUserByUsername(String username);
 }
